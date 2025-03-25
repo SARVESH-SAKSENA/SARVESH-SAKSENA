@@ -1,0 +1,30 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "react",
+  "keywords": [
+    "react"
+  ],
+  "homepage": "https://github.com/SARVESH-SAKSENA/SARVESH-SAKSENA#readme",
+  "bugs": {
+    "url": "https://github.com/SARVESH-SAKSENA/SARVESH-SAKSENA/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SARVESH-SAKSENA/SARVESH-SAKSENA.git"
+  },
+  "license": "ISC",
+  "author": "Sarvesh Saksena",
+  "type": "commonjs",
+
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "parcel": "^2.14.2"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
