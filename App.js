@@ -1,13 +1,17 @@
-import React from 'react';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-import ReactDOM from'react-dom/client';
+const heading1  = <h1 id="heading">Namaste React👍</h1>;
 
-const parent = React.createElement("div" , { id : "parent"} , [
-    React.createElement("div" , {id : "child1"} , React.createElement("h1" , {} , "Namaste React")),
-    React.createElement("div" , {id : "child1"} , React.createElement("h1" , {} , "I'm h1 tag"))
-]);
+const heading =  (<h1>Hello from Sarvesh </h1>);
 
+const App = () => (
+  <div>
+    {heading}
+    <h2> Hello JSX </h2>
+  </div>
+);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(parent);
+root.render(<App />);
