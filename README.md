@@ -5,10 +5,12 @@ this is rect project
 -Header
  - Logo
  - Navigation Menu
+
 -Body
  -Search
  - Restaurant Container
   -Restaurant Card
+
 -Footer
  -Copyright
  - Social Media Icons
