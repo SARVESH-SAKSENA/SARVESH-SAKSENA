@@ -35,20 +35,42 @@
   width: 150px;
   padding: 5px;
   margin: 5px;
+  background-color: rgba(205, 205, 205, 0.88);
 }
 
 .res-card:hover {
   border: 2px solid black;
   padding: 3px;
+  cursor: pointer;
 }
 
 .res-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .search {
   margin: 10px;
   font-size: xx-large;
+}
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.shimmer-card {
+  width: 150px;
+  padding: 5px;
+  margin: 5px;
+  background-color: rgba(205, 205, 205, 0.88);
+  height: 400px;
+}
+
+.login-btn {
+  width: 80px;
+  cursor: pointer;
+  margin-left: 30px;
 }

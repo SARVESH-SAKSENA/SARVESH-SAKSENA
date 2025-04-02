@@ -683,7 +683,7 @@ const resList = [
       type: "WEBLINK",
     },
     widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
-  },
+  }
 ];
 
 
