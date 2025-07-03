@@ -9,18 +9,19 @@ const Rescard = (props) => {
 
   return (
     <div className="res-card">
-      <img
-        src={APP_URL
-           +
-          cloudinaryImageId
-        }
-        alt="res logo"
-        className="res-logo"
-      />
-      <h3>{name}</h3>
-      <h4>{cuisines.join(", ")}</h4>
-      <h4>{avgRating}</h4>
-      <h4>{sla.deliveryTime}</h4>
+      <div className="rc-img">
+        <img
+          src={APP_URL + cloudinaryImageId}
+          alt="res logo"
+          className="res-logo"
+        />
+      </div>
+      <div className="rc-info">
+        <h3 >{name}</h3>
+        <h4>{cuisines.join(", ")}</h4>
+        <h4>{avgRating}</h4>
+        <h4>{sla.deliveryTime}</h4>
+      </div>
     </div>
   );
 }

@@ -3,17 +3,33 @@ import resList from "../utils/mockdata";
 import Rescard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router";
 
 const Body = () => {
   const [Listofres, setListofres] = useState([]);
 
-  const [list , setList] = useState([]);
+  const [list, setList] = useState([]);
+
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  const [search, setSearch] = useState("");
+  useEffect(() => {
+    searchfeed();
+  }, [search]);
+
+  const searchfeed = () => {
+    const filteredList = Listofres.filter((res) =>
+      res.info.name.toLowerCase().includes(search.toLowerCase())
+    );
+    setList(filteredList);
+  };
+
+
+
+
 
   const fetchData = async () => {
     const data = await fetch(API_URL);
@@ -32,7 +48,7 @@ const Body = () => {
   return (
     <div>
       <div className="search">
-        <div className="search">
+        <div className="search-text">
           <input
             type="text"
             className="search-box"
@@ -43,11 +59,7 @@ const Body = () => {
           />
           <button
             onClick={() => {
-              console.log(search);
-              const filteredList = Listofres.filter((res) =>
-                res.info.name.toLowerCase().includes(search.toLowerCase())
-              );
-              setList(filteredList);
+              searchfeed();              
             }}
           >
             Search
@@ -56,8 +68,8 @@ const Body = () => {
         <button
           className="btn"
           onClick={() => {
-            setListofres(
-              Listofres.filter((restaurant) => restaurant.info.avgRating > 4.0)
+            setList(
+              Listofres.filter((restaurant) => restaurant.info.avgRating > 4.3)
             );
           }}
         >
@@ -66,7 +78,12 @@ const Body = () => {
       </div>
       <div className="res-container">
         {list.map((restaurant) => (
-          <Rescard key={restaurant.info.id} resData={restaurant.info} />
+          <Link
+            key={restaurant.info.id}
+            to={"restaurants/" + restaurant.info.id}
+          >
+            <Rescard resData={restaurant.info} />
+          </Link>
         ))}
       </div>
     </div>
