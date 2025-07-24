@@ -46,27 +46,29 @@ const Body = () => {
   if (list.length == 0) return <Shimmer />;
 
   return (
-    <div>
-      <div className="search">
-        <div className="search-text">
+    <div className="f">
+      <div className="flex m-4">
+        <div className="pr-4">
           <input
             type="text"
-            className="search-box"
+            className="border-1 rounded-md "
+            placeholder="Search restaurant"
             value={search}
             onChange={(e) => {
               setSearch(e.target.value);
             }}
           />
           <button
+            className="bg-orange-300 hover:bg-orange-400 py-0.5 px-2 rounded-md"
             onClick={() => {
-              searchfeed();              
+              searchfeed();
             }}
           >
             Search
           </button>
         </div>
         <button
-          className="btn"
+          className="bg-orange-300 hover:bg-orange-400 py-0.5 px-2 rounded-md"
           onClick={() => {
             setList(
               Listofres.filter((restaurant) => restaurant.info.avgRating > 4.3)
@@ -76,7 +78,7 @@ const Body = () => {
           Top Rated Restaurants
         </button>
       </div>
-      <div className="res-container">
+      <div className="flex m-4 flex-wrap justify-between">
         {list.map((restaurant) => (
           <Link
             key={restaurant.info.id}

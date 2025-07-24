@@ -10,28 +10,28 @@ const Header = () => {
   const status = useOnlineStatus();
 
   return (
-    <div className="header">
-      <div className="logo-container">
-        <img className="logo" src={LOGO_URL} />
+    <div className="flex justify-between bg-orange-100 m-4 rounded-2xl shadow-xl">
+      <div className="w-30 m-6">
+        <img className="rounded-[50%]" src={LOGO_URL} />
       </div>
-      <div className="nav-items">
-        <ul>
-          <li>Online Status : {status ? "✅" : "❌"}</li>
-          <li>
+      <div className="flex m-6 items-center ">
+        <ul className="flex p-4">
+          <li className="px-3 py-1.5"> Online Status : {status ? "✅" : "❌"}</li>
+          <li className="px-3 py-1.5">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="px-3 py-1.5">
             <Link to="/about">About Us</Link>
           </li>
-          <li>
+          <li className="px-3 py-1.5">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li>
+          <li className="px-3 py-1.5">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li>Cart</li>
+          <li className="px-3 py-1.5">Cart</li>
           <button
-            className="login-btn"
+            className="login-btn w-20 mx-4  border-2 rounded-xl bg-orange-300 hover:bg-orange-400" 
             onClick={() => {
               if (btnName == "Login") setbtnName("Logout");
               else setbtnName("Login");
