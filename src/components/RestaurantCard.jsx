@@ -26,4 +26,15 @@ const Rescard = (props) => {
   );
 }
 
+export const withOpenlabel = (Rescard) =>{
+  return (props) =>{  //this return is returning the component 
+    return (    //this return is returning updated jsx of component
+      <div>
+        <label className="absolute bg-black text-white p-2 rounded-xl" >Open</label>
+        <Rescard {...props}/>
+      </div>
+    )
+  }
+}
+
 export default Rescard;

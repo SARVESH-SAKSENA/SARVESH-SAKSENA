@@ -5,7 +5,7 @@ const useRestaurantMenu = (props) => {
 
     const resId = props;
 
-    console.log(resId);
+    // console.log(resId);
 
     const [resInfo , setresInfo ] = useState(null); 
     
@@ -19,7 +19,7 @@ const useRestaurantMenu = (props) => {
         const data = await fetch(MENU_URL1 + resId + MENU_URL2);
         const json = await data.json();
         setresInfo(json?.data);
-        console.log(json);
+        // console.log(json);
     }
 
     return resInfo;

@@ -1,6 +1,6 @@
 import { API_URL } from "../utils/constant";
 import resList from "../utils/mockdata";
-import Rescard from "./RestaurantCard";
+import Rescard , {withOpenlabel} from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
@@ -11,6 +11,8 @@ const Body = () => {
   const [list, setList] = useState([]);
 
   const [search, setSearch] = useState("");
+
+  const RestaurantCardOpen = withOpenlabel(Rescard); //RestauranCardOpen is declared with the component returned by withOpenlabel 
 
   useEffect(() => {
     fetchData();
@@ -41,6 +43,7 @@ const Body = () => {
     setList(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+    // console.log(list);
   };
 
   if (list.length == 0) return <Shimmer />;
@@ -51,7 +54,7 @@ const Body = () => {
         <div className="pr-4">
           <input
             type="text"
-            className="border-1 rounded-md "
+            className="border-1 rounded-md px-2 "
             placeholder="Search restaurant"
             value={search}
             onChange={(e) => {
@@ -84,7 +87,7 @@ const Body = () => {
             key={restaurant.info.id}
             to={"restaurants/" + restaurant.info.id}
           >
-            <Rescard resData={restaurant.info} />
+            {restaurant.info.isOpen ? (<RestaurantCardOpen resData={restaurant.info} />) : (<Rescard resData={restaurant.info} />)}
           </Link>
         ))}
       </div>
