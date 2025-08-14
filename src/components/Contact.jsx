@@ -1,9 +1,18 @@
-import React from 'react'
+import React from "react";
 
-const Contact  = () => {
+const Contact = () => {
   return (
-    <div>Contact Us</div>
-  )
-}
+    <div>
+      <h1>Contact Us</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur
+        laboriosam a ipsa quam quaerat illo dicta ipsum accusamus, iure facere
+        illum voluptatum provident corporis maiores, obcaecati, tenetur ratione
+        similique aperiam.
+      </p>
+      <p>Hello Hi</p>
+    </div>
+  );
+};
 
-export default Contact ;
+export default Contact;
