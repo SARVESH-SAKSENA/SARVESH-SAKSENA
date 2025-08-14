@@ -1,9 +1,17 @@
+import { useDispatch } from "react-redux";
 import { APP_URL } from "../utils/constant";
+import { addItem } from "../utils/cartSlice";
 
 const ItemList = (props) => { //This componenet shows expanded info part of accordian
 
     const item = props?.data;
     // console.log(item);
+
+    const dispatch = useDispatch();
+
+    const handleAddItem = (item) => {
+      dispatch(addItem(item));
+    }
 
     return (
       <div>
@@ -26,8 +34,9 @@ const ItemList = (props) => { //This componenet shows expanded info part of acco
               <p className="w-11/12 truncate"> {c?.card?.info?.description}</p>
             </div>
             <div className="f">
-              <div className=" absolute">
-                <button className="bg-black text-white m-auto px-2 py-1 rounded-xl">
+              <div className="">
+                <button className="bg-black text-white m-auto px-2 py-1 cursor-pointer rounded-xl absolute"
+                onClick={() => handleAddItem(c)}>
                   Add +
                 </button>
               </div>

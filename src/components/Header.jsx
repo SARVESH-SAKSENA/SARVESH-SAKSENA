@@ -2,12 +2,16 @@ import { useState } from "react";
 import { LOGO_URL } from "../utils/constant";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { useSelector } from "react-redux";
 
 const Header = () => {
 
   const [btnName , setbtnName] = useState("Login");
 
   const status = useOnlineStatus();
+
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
 
   return (
     <div className="flex justify-between bg-orange-100 m-4 rounded-2xl shadow-xl">
@@ -16,7 +20,10 @@ const Header = () => {
       </div>
       <div className="flex m-6 items-center ">
         <ul className="flex p-4">
-          <li className="px-3 py-1.5"> Online Status : {status ? "✅" : "❌"}</li>
+          <li className="px-3 py-1.5">
+            {" "}
+            Online Status : {status ? "✅" : "❌"}
+          </li>
           <li className="px-3 py-1.5">
             <Link to="/">Home</Link>
           </li>
@@ -29,9 +36,11 @@ const Header = () => {
           <li className="px-3 py-1.5">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li className="px-3 py-1.5">Cart</li>
+          <li className="px-3 py-1.5">
+            <Link to ="/cart">Cart ({cartItems.length})</Link>
+          </li>
           <button
-            className="login-btn w-20 mx-4  border-2 rounded-xl bg-orange-300 hover:bg-orange-400" 
+            className="login-btn w-20 mx-4  border-2 rounded-xl bg-orange-300 hover:bg-orange-400"
             onClick={() => {
               if (btnName == "Login") setbtnName("Logout");
               else setbtnName("Login");
