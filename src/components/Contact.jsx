@@ -10,6 +10,7 @@ const Contact = () => {
         illum voluptatum provident corporis maiores, obcaecati, tenetur ratione
         similique aperiam.
       </p>
+      <p>Just checking change of commit contributor</p>
       <p>Hello Hi</p>
     </div>
   );
